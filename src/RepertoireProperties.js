@@ -8,5 +8,6 @@ class RepertoireProperties
         this.diffuculty = 9;
         this.era = "romantic";
         this.id = -1;
+        this.success = true;
     }
 }

@@ -15,7 +15,7 @@ function setSelfDefineSetupSection()
         new_input.type="text";
         new_input.size = 40;
         // DEBUG LINE; REMOVE BEFORE LAUNCH
-        new_input.value="something"+i_piece;
+        new_input.value="Piece_"+i_piece;
         input_blocks.appendChild(new_input);
         //input_blocks.appendChild(document.createElement("br"));
     }

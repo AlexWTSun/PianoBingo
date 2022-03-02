@@ -3,89 +3,7 @@
     <title> Piano Bingo!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        *{
-            box-sizing: border-box;
-        }
-        body
-        {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-        header
-        {
-            background-color: rgb(71, 71, 71);
-            padding: 30px;
-            text-align: center;
-            font-size: 35px;
-            color: white;
-        }
-        .gameSetup
-        {
-            font-size: 16px;
-        }
-        /* Container for flexboxes */
-        .gameSection
-        {
-           display: -webkit-flex;
-           display: flex;
-        }
-        /* Style the content */
-        .gameBoard
-        {
-            -webkit-flex: 3;
-            -ms-flex: 3;
-            flex: 3;
-            background-color: #e0dada;
-            padding: 10px;
-            font-size: 16px;
-        }
-        /* Style the footer */
-        footer
-        {
-            background-color: rgb(71,71,71);
-            padding: 10px;
-            text-align: center;
-            font-size: 20px;
-            color: white;
-        }
-        .repList
-        {
-            -webkit-flex: 1;
-            -ms-flex: 1;
-            flex: 1;
-            background-color: #7c7c7c;
-            padding: 10px;
-        }
-        .repertoire
-        {
-            font-size: 14px;
-            color: black;
-            display: none;
-            margin: 0.5%;
-        }
-
-        @media (max-width: 600px)
-        {
-            section 
-            {
-                -webkit-flex-direction: column;
-                flex-direction: column;
-            }
-        }
-
-        body {background-color: rgb(255, 255, 255);}
-        h1   {color: rgb(204, 50, 23);}
-        h2   {color: rgb(204, 50, 23);}
-        p    {color: rgb(0, 0, 0);}
-    </style>
-    <!--
-    <head>
-        <style>
-            body {background-color: rgb(9, 234, 241);}
-            h1   {color: rgb(0, 0, 0);}
-            p    {color: rgb(0, 0, 0);}
-            </style>
-    </head> -->
+    <link rel="stylesheet" href="styleSheet.css">
     <header>
         Piano Bingo!
     </header>
@@ -115,6 +33,7 @@
         <script src="src/update_game_setup.js"></script>
         <script src="src/build_game_setup_section.js"></script>
         <script src="src/setup_game_board.js"></script>
+        <script src="src/utility.js"></script>
 
         <label for="board_size">Game board size:</label>
         <select name="board_size" id="board_size", onchange="updateGameSetup()">
@@ -143,37 +62,16 @@
 
         <!-- Game Board-->
         <section class="gameSection">
-            <section class="gameBoard">
-                <p>This is the region for game board
+            <section id = "game_board_section", class="gameBoard">
+                <p>Game board will be loaded after game start.
                 </p>
             </section>
             <section id="rep_display_section" class="repList">
                 <button type="button", id="repDispButton" , onclick="displayRepertoire()"
                   style="height: 20px; width: 150px;">Show Repertoire</button>
-                <ul id = "disp_rep_list", style = "display:none;"></ul>
+                <ul id = "disp_rep_list", style = "display:none; list-style-type: none;"></ul>
             </section>
 
-            <script>
-                function displayRepertoire()
-                {
-                    let rep_list = document.getElementById("disp_rep_list");
-                    var rep_disp_option = rep_list.style.display;
-                    if(rep_disp_option=='block')
-                    {
-                        document.getElementById('repDispButton').innerHTML = "Show Repertoire";
-                        // then hide the repertoire;
-                        rep_disp_option = 'none';
-                    }
-                    else
-                    {
-                        document.getElementById('repDispButton').innerHTML = "Hide Repertoire";
-                        // then show the repertoire
-                        rep_disp_option = 'block';
-                    }
-
-                    rep_list.style.display=rep_disp_option;
-                }
-            </script>
         </section>
         <hr>
         <footer>
